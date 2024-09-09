@@ -1,0 +1,192 @@
+.input-number-container {
+    display: flex;
+    flex-direction: column;
+    width: 444px;
+    height: 78px;
+}
+
+.input-number-block {
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    padding: 10px 0px 10px 0px;
+}
+
+.input-number-image {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.input-number-box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+.input-number-label {
+    position: absolute;
+    top: -12px;
+    left: 15px;
+    background-color: #FFFFFF;
+    padding: 0px 5px 0px 5px;
+    gap: 5px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16.34px;
+    color: #22232B;
+    display: flex;
+    align-items: center;
+}
+
+.input-number-lable-image {
+    width: 14px;
+    height: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.input-number-controls {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #BDCDD5;
+    border-radius: 5px;
+}
+
+.input-btn {
+    border: none;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.decrement {
+    position: absolute;
+    top: 8.5px;
+    left: 13px;
+    width: 20px;
+    height: 2px;
+}
+
+.increment {
+    position: absolute;
+    top: 10px;
+    left: 360px;
+    width: 20px;
+    height: 20px;
+}
+
+.input-number {
+    text-align: start;
+    border: none;
+    font-size: 18px;
+    outline: none;
+    padding-left: 65px;
+}
+
+.input-number::-webkit-inner-spin-button, 
+.input-number::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.input-number-price-p {
+    width: 100%;
+    height: 18px;
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: -5px;
+    padding-left: 40px;
+    color: #22232B;
+}
+
+.input-number-price-span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.form-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 5px;
+    height: 40px;
+    border: 1px solid #BDCDD5;
+    outline: none;
+    padding-left: 15px;
+}
+
+.form-select:focus,
+.form-select:valid {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19.07px;
+    color: #22232B;
+}
+
+.form-select-arrow {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 35%;
+    left: 92%;
+    pointer-events: none;
+}
+
+@media (max-width: 767px) {
+    .input-number-container {
+        width: 16.4rem;
+        margin-left: -1.2rem;
+    }
+
+    .input-number {
+        width: 10rem;
+    }
+
+    .form-select {
+        width: 14.3rem;
+    }
+
+    .increment {
+        left: 12rem;
+    }
+}
+
+@media (min-width: 768px ) and (max-width: 1023px)  {
+    .input-number-container {
+        width: 30rem;
+    }
+
+    .input-number {
+        width: 40rem;
+    }
+
+    .form-select {
+        width: 30rem;
+    }
+
+    .increment {
+        left: 27.5rem;
+    }
+}
+
+@media (min-width: 1024px ) and (max-width: 1500px) {
+    .input-number-container {
+        width: 80%;
+    }
+
+    .input-number {
+        width: 90%;
+    }
+
+    .form-select {
+        width: 100%;
+    }
+
+    .increment {
+        left: 85%;
+    }
+}

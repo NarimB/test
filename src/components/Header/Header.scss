@@ -1,0 +1,130 @@
+.header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    width: 94px;
+    height: 32px;
+    margin-left: 15px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16.34px;
+    color: #22232B;
+}
+
+.user-account {
+    width: 253px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+    gap: 12px;
+}
+
+.notifications {
+    width: 40px;
+    height: 31px;
+}
+
+.balance {
+    width: 95px;
+    height: 32px;
+}
+
+.user_name {
+    width: 94px;
+    height: 32px;
+}
+
+.header input {
+    display: none;
+}
+
+.header label {
+    font-size: 2rem;
+    color: var(--blue);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+
+@media (max-width: 767px) {
+    .header {
+        width: 100%;
+    }
+
+    .header label {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .user-account {
+        position: absolute;
+        top: 3.5rem;
+        left: 0;
+        width: 45rem;
+        height: 4rem;
+        background-color: #FFFFFF;
+        padding: 0.1rem 0.1rem;
+        z-index: 1;
+        justify-content: space-around;
+        transform-origin: top;
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    .header input:checked ~ .user-account {
+        transform: scale(1);
+        opacity: 1;
+
+    }
+}
+
+@media (min-width: 768px ) and (max-width: 1023px)  {
+    .header {
+        width: 100%;
+    }
+
+    .header label {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .user-account {
+        position: absolute;
+        top: 3.5rem;
+        left: 0;
+        width: 58.4rem;
+        height: 4rem;
+        background-color: #FFFFFF;
+        padding: 0.1rem 0.1rem;
+        z-index: 1;
+        justify-content: space-around;
+        transform-origin: top;
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    .header input:checked ~ .user-account {
+        transform: scale(1);
+        opacity: 1;
+
+    }
+}
+
+@media (min-width: 1024px ) and (max-width: 1500px) {
+    .header {
+        width: 100%;
+    }
+}
