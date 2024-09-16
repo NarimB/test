@@ -58,8 +58,10 @@ export function Input( { image, inputText, type, status, basicPrice, priceSpan, 
     };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const newValue = Number(e.target.value);
-        setInputValue(newValue);
+        const newValue = e.target.value;
+        if (/^\d*$/.test(newValue)) {
+            setInputValue(parseInt(newValue));
+        }
     };
 
     const mergedArrow = useMemo<TooltipProps['arrow']>(() => {
@@ -76,55 +78,66 @@ export function Input( { image, inputText, type, status, basicPrice, priceSpan, 
         };
     }, [arrow]);
 
+    const formatPrice = (price: number) => {
+        return price.toLocaleString('ru-RU');
+    };
+
     return (
-        <div className="input-number-container">
-            <div className="input-number-block">
-                <img src={image} alt="input icon" className="input-number-image" />
-                <div className="input-number-box">
-                    <label className="input-number-label">{inputText}
-                        {status === true ? (
-                            <Flex justify="center" align="center" style={{ whiteSpace: 'nowrap' }}>
-                                <Tooltip placement="rightBottom" title={'Подсказка...'} arrow={mergedArrow} color='#20A8D8'>
-                                    <img src={questionMark_frame} className='input-number-lable-image'></img>
-                                </Tooltip>
-                            </Flex>
+        <div className='selector__container'>
+            <img className='selector__container-image' src={image} alt='input icon'></img>
+            <div className='selector__container-content'>
+                    <fieldset className='selector__container-fieldset'>
+                        <legend className='selector__container-legend'>{inputText}
+                            {status === true ? (
+                                <Flex justify="center" align="center" style={{ whiteSpace: 'nowrap' }}>
+                                    <Tooltip placement="rightBottom" title={'Подсказка...'} arrow={mergedArrow} color='#20A8D8'>
+                                        <img src={questionMark_frame} className='selector__container-legend-image'></img>
+                                    </Tooltip>
+                                </Flex>
+                            ) : 
+                                null 
+                            }
+                        </legend>
+                        {type === 'input' ? (
+                            <div className='selector__container-input-block'>
+                                <button className='selector__container-input-decrement' onClick={decrease}>
+                                    <img src={decrement} alt='decrement icon'></img>
+                                </button>
+                                <input 
+                                    className='selector__container-input' 
+                                    type='number' 
+                                    value={inputValue} 
+                                    onChange={handleInputChange}
+                                    min={0}>
+                                </input>
+                                <button className='selector__container-input-increment' onClick={increase}>
+                                    <img src={increment} alt='increment icon'></img>
+                                </button>
+                            </div>
+
                         ) : 
-                            null 
+                            <>
+                                <select className='selector__container-select' onChange={handleSelectChange}>
+                                    {options && options.map((option, index) => (
+                                        <option key={index} value={option.value} className='form-select-option'>{option.label}</option>
+                                    ))}
+                                </select> 
+                                <img src={select_arrow_frame} className='selector__container-select-arrow'></img>
+                            </>
                         }
-                    </label>
+                    </fieldset>
+                <p className="selector__container-price">
                     {type === 'input' ? (
-                        <div className="input-number-controls">
-                            <button className="input-btn decrement" onClick={decrease}>
-                                <img src={decrement} alt="decrement icon" />
-                            </button>
-                            <input type="number" className="input-number" value={inputValue || ''} onChange={handleInputChange}/>
-                            <button className="input-btn increment" onClick={increase}>
-                                <img src={increment} alt="increment icon" />
-                            </button>
-                        </div>
-                    ) : 
-                        <>
-                            <select className='form-select' onChange={handleSelectChange}>
-                                {options && options.map((option, index) => (
-                                    <option key={index} value={option.value} className='form-select-option'>{option.label}</option>
-                                ))}
-                            </select> 
-                            <img src={select_arrow_frame} className='form-select-arrow'></img>
-                        </>
-                        }
-                </div>
+                            <>
+                                {selectedOption === 'monthly' ? formatPrice(basicPrice * 30) : formatPrice(basicPrice)} <span className="selector__container-price-span">{priceSpan}</span>
+                            </>
+                        ) : (
+                            <>
+                                {selectedOption === 'monthly' ? formatPrice(selectedOptionPrice * 30) : formatPrice(selectedOptionPrice)} <span className="selector__container-price-span">{priceSpan}</span>
+                            </>
+                    )}
+                </p>
             </div>
-            <p className="input-number-price-p">
-                {type === 'input' ? (
-                        <>
-                            {selectedOption === 'monthly' ? basicPrice * 30 : basicPrice} <span className="input-number-price-span">{priceSpan}</span>
-                        </>
-                    ) : (
-                        <>
-                            {selectedOption === 'monthly' ? selectedOptionPrice * 30 : selectedOptionPrice} <span className="input-number-price-span">{priceSpan}</span>
-                        </>
-                )}
-            </p>
         </div>
     )
 };

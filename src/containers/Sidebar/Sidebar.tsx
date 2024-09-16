@@ -28,23 +28,21 @@ export function Sidebar() {
     }, [arrow]);
 
     return (
-        <>
-            <div className="sidebar">
-                <img className='menu' src={menu}></img>    
-                <Flex align="center" vertical>
-                    <Tooltip placement="rightTop" title={'Подсказка...'} arrow={mergedArrow} color='#20A8D8'>
-                        <img className='blue_question_mark' src={blue_question_mark}></img>
-                    </Tooltip>
-                </Flex>
-                <Flex align="center" vertical>
-                    <Tooltip placement="rightTop" title={'Подсказка...'} arrow={mergedArrow} color='#2A2C36'>
-                        <img className='question_mark' src={question_mark}></img>
-                    </Tooltip>
-                </Flex>
-                <img src={theme} className='theme'></img>
-                <img src={language} className='language'></img>
-                <img src={pin} className='pin'></img>
-            </div>
-        </>
+        <div className='sidebar'>
+            <img className='sidebar__item--menu' src={menu} alt='menu image'></img>
+            <Flex align="center" vertical>
+                 <Tooltip placement="rightTop" title={'Подсказка...'} arrow={mergedArrow} color='#20A8D8'>
+                     <img className='sidebar__item--blue-question-mark' src={blue_question_mark} alt='blue question mark image'></img>
+                 </Tooltip>
+            </Flex>
+            <Flex align="center" vertical>
+                 <Tooltip placement="rightTop" title={'Подсказка...'} arrow={mergedArrow} color='#2A2C36'>
+                    <img className='sidebar__item--middle-question-mark' src={question_mark} alt='question mark image'></img>
+                 </Tooltip>
+             </Flex>
+             <img src={theme} className='sidebar__item--theme' alt='theme image'></img>
+             <img src={language} className='sidebar__item--language' alt='language image'></img>
+             <img src={pin} className='sidebar__item--pin'alt='pin image'></img>
+        </div>
     )
 }

@@ -1,192 +1,138 @@
-.input-number-container {
-    display: flex;
-    flex-direction: column;
-    width: 444px;
-    height: 78px;
-}
-
-.input-number-block {
-    display: flex;
-    align-items: center;
-    border-radius: 6px;
-    padding: 10px 0px 10px 0px;
-}
-
-.input-number-image {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-}
-
-.input-number-box {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-}
-
-.input-number-label {
-    position: absolute;
-    top: -12px;
-    left: 15px;
-    background-color: #FFFFFF;
-    padding: 0px 5px 0px 5px;
-    gap: 5px;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16.34px;
-    color: #22232B;
-    display: flex;
-    align-items: center;
-}
-
-.input-number-lable-image {
-    width: 14px;
-    height: 14px;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-.input-number-controls {
-    height: 40px;
+.selector__container {    
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #BDCDD5;
+}
+
+.selector__container-image {
+    margin-top: -7px;
+}
+
+.selector__container-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 15px;
+}
+
+.selector__container-fieldset {
     border-radius: 5px;
+    border: 1px solid #BDCDD5;
+    position: relative;
 }
 
-.input-btn {
-    border: none;
-    background-color: #FFFFFF;
-    cursor: pointer;
-}
-
-.decrement {
-    position: absolute;
-    top: 8.5px;
-    left: 13px;
-    width: 20px;
-    height: 2px;
-}
-
-.increment {
-    position: absolute;
-    top: 10px;
-    left: 360px;
-    width: 20px;
-    height: 20px;
-}
-
-.input-number {
-    text-align: start;
-    border: none;
-    font-size: 18px;
-    outline: none;
-    padding-left: 65px;
-}
-
-.input-number::-webkit-inner-spin-button, 
-.input-number::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-
-.input-number-price-p {
-    width: 100%;
-    height: 18px;
-    font-weight: 700;
-    font-size: 12px;
-    margin-top: -5px;
-    padding-left: 40px;
-    color: #22232B;
-}
-
-.input-number-price-span {
+.selector__container-legend {
+    padding: 0px 5px;
     font-weight: 400;
     font-size: 12px;
-    line-height: 18px;
+    line-height: 16.34px;
+    position: absolute;
+    top: -15px;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+
+    &-image {
+        margin-left: 5px;
+    }
 }
 
-.form-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-radius: 5px;
-    height: 40px;
-    border: 1px solid #BDCDD5;
+.selector__container-input-block {
+    display: flex;
+    align-items: center;
+}
+
+.selector__container-input {
+    border: none;
     outline: none;
-    padding-left: 15px;
-}
-
-.form-select:focus,
-.form-select:valid {
     font-weight: 700;
     font-size: 14px;
     line-height: 19.07px;
     color: #22232B;
+    padding-left: 12px; 
+    width: 100%;
+
+    &-increment, &-decrement {
+        background-color: #FFFFFF;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-increment {
+        padding-top: 2px;
+    }
 }
 
-.form-select-arrow {
-    width: 14px;
-    height: 14px;
-    position: absolute;
-    top: 35%;
-    left: 92%;
-    pointer-events: none;
+.selector__container-input::-webkit-inner-spin-button, 
+.selector__container-input::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.selector__container-price {
+    margin: 5px 0 0 2px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+
+    &-span {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+.selector__container-select {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19.07px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-left: 5px;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+
+    &-arrow {
+        position: absolute;
+        top: 13px;
+        right: 21.6px;
+        pointer-events: none;
+
+    }
 }
 
 @media (max-width: 767px) {
-    .input-number-container {
-        width: 16.4rem;
-        margin-left: -1.2rem;
-    }
 
-    .input-number {
-        width: 10rem;
-    }
+    .selector__container {
 
-    .form-select {
-        width: 14.3rem;
-    }
+        &-image {
+            width: 30%;
+            height: 30%;
+        }
 
-    .increment {
-        left: 12rem;
-    }
-}
+        &-legend {
+            font-size: 5px;
+        }
 
-@media (min-width: 768px ) and (max-width: 1023px)  {
-    .input-number-container {
-        width: 30rem;
-    }
+        &-input-increment img, &-input-decrement img {
+            width: 10px;
+            height: 10px;
+        }
 
-    .input-number {
-        width: 40rem;
-    }
+        &-select {
+            font-size: 10px;
 
-    .form-select {
-        width: 30rem;
-    }
-
-    .increment {
-        left: 27.5rem;
-    }
-}
-
-@media (min-width: 1024px ) and (max-width: 1500px) {
-    .input-number-container {
-        width: 80%;
-    }
-
-    .input-number {
-        width: 90%;
-    }
-
-    .form-select {
-        width: 100%;
-    }
-
-    .increment {
-        left: 85%;
+            &-arrow {
+                display: none;
+            }
+        }
     }
 }

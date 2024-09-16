@@ -3,66 +3,49 @@
     height: 894px;
     background-color: #2A2C36;
     position: relative;
-}
 
-.menu {
-    width: 50px;
-    height: 40px;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    padding: 10px, 15px, 10px, 15px;
-    gap: 10px;
-}
+    &__item--menu {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        padding: 10px 15px;
+        cursor: pointer;
+    }
 
-.blue_question_mark {
-    width: 60px;
-    height: 40px;
-    position: absolute;
-    top: 45px;
-    left: 5px;
-    border-radius: 3px;
-    padding: 10px, 25px, 10px, 15px;
-    gap: 10px;
-}
+    &__item--blue-question-mark {
+        position: absolute;
+        top: 45px;
+        left: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-.question_mark {
-    width: 50px;
-    height: 40px;
-    position: absolute;
-    top: 427px;
-    left: 5px;
-    padding: 10px, 15px, 10px, 15px;
-    gap: 10px;
-}
+    &__item--middle-question-mark {
+        position: absolute;
+        top: 427px;
+        left: 5px;
+        cursor: pointer;
+    }
 
-.theme {
-    width: 50px;
-    height: 40px;
-    position: absolute;
-    top: 769px;
-    left: 5px;
-    padding: 10px, 15px, 10px, 15px;
-    gap: 10px;
-}
+    &__item--theme {
+        position: absolute;
+        top: 769px;
+        left: 5px;
+        cursor: pointer;
+    }
 
-.language {
-    width: 50px;
-    height: 40px;
-    position: absolute;
-    top: 809px;
-    left: 5px;
-    padding: 10px, 15px, 10px, 15px;
-    gap: 10px;
-}
+    &__item--language {
+        position: absolute;
+        top: 809px;
+        left: 5px;
+        cursor: pointer;
+    }
 
-.pin {
-    width: 50px;
-    height: 40px;
-    position: absolute;
-    top: 849px;
-    left: 5px;
-    padding: 10px, 15px, 10px, 15px;
-    gap: 10px;
+    &__item--pin {
+        position: absolute;
+        top: 849px;
+        left: 5px;
+        cursor: pointer;
+    }
 }
 

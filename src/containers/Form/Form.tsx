@@ -1,4 +1,3 @@
-import { Input } from '../../components/InputNumber/Input';
 import processor_frame from '../../assets/icons/processor_frame.svg';
 import memory_frame from '../../assets/icons/memory_frame.svg';
 import fast_disk_frame from '../../assets/icons/fast_disk_frame.svg';
@@ -8,6 +7,7 @@ import public_network_frame from '../../assets/icons/public_network_frame.svg';
 import router_frame from '../../assets/icons/router_frame.svg';
 import { useEffect, useState } from 'react';
 import { Modal } from 'antd';
+import { Input } from '../../components/InputNumber/Input';
 import './Form.scss';
 
 export function Form() {
@@ -46,26 +46,26 @@ export function Form() {
     };
 
     return (
-        <div className="form">
-            <div className='form_block'>
-                <div className='resource-block'>
-                    <span className='resource-text'>Ресурсы вашего облака Virtuozzo PaaS</span>
-                    <div className="switch-container">
+        <div className='form'>
+            <div className='form__container'>
+                <div className='container__title'>
+                    <h1 className='container__title-text'>Ресурсы вашего облака Virtuozzo PaaS</h1>
+                    <div className="container__title-switch">
                         <button
-                            className={`switch-option ${selectedOption === 'hourly' ? 'active' : ''}`}
+                            className={`container__title-switch-button ${selectedOption === 'hourly' ? 'active' : ''}`}
                             onClick={() => setSelectedOption('hourly')}
                         >
-                            в день
+                            в час
                         </button>
                         <button
-                            className={`switch-option ${selectedOption === 'monthly' ? 'active' : ''}`}
+                            className={`container__title-switch-button ${selectedOption === 'monthly' ? 'active' : ''}`}
                             onClick={() => setSelectedOption('monthly')}
                         >
                             в месяц
                         </button>
                     </div>
                 </div>
-                <div className='form-block-input'>
+                <div className='container__input'>
                     <Input 
                         image={processor_frame} 
                         inputText='Ядра процессора' 
@@ -144,9 +144,9 @@ export function Form() {
                         selectedOption={selectedOption}
                     />
                 </div>
-                <div className='button_block'>
-                    <button className='order_button' onClick={showModal}>Заказать</button>
-                    <p className='total-sum'>за<span className='total-sum span'> {formatPrice(totalPrice)} </span> {selectedOption === 'monthly' ? 'тг/мес' : 'тг/день'}</p>
+                <div className='container__order'>
+                    <button className='container__order-button' onClick={showModal}>Заказать</button>
+                    <p className='container__order-sum'>за<span className='container__order-sum span'> {formatPrice(totalPrice)} </span> {selectedOption === 'monthly' ? 'тг/мес' : 'тг/день'}</p>
                 </div>
                 <Modal open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                     <p>Добавлено в корзину</p>

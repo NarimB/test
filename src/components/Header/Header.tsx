@@ -7,19 +7,33 @@ import './Header.scss';
 export function Header() {
 
     return (
-        <header className="header">
-            <div className='logo'>
-                <img src={logo}></img>
-                <span className='logo-text'>Консоль управления</span>
-            </div>
+        <header className='header'>
+            <a className='header__logo' href='/'>
+                <img className='logo__image' src={logo}></img>
+                <h1 className='logo__text'>Консоль управления</h1>
+            </a> 
             <input type='checkbox' name='menu' id='menu'></input>
             <label htmlFor='menu'>
                 ☰
-            </label>
-            <nav className='user-account'>
-                <img src={notifications} className='notifications'></img>
-                <img src={balance} className='balance'></img>
-                <img src={user_name} className='user_name'></img>
+            </label>   
+            <nav className='header__menu'>
+                <ul className='header__menu-list'>
+                    <li className='header__menu-item'>
+                        <a className='header__menu-link' href='/'>
+                            <img className='link__image' src={notifications}></img>
+                        </a>
+                    </li>
+                    <li className='header__menu-item'>
+                        <a className='header__menu-link' href='/'>
+                            <img className='link__image' src={balance}></img>
+                        </a>
+                    </li>
+                    <li className='header__menu-item'>
+                        <a className='header__menu-link' href='/'>
+                            <img className='link__image' src={user_name}></img>
+                        </a>
+                    </li>
+                </ul>
             </nav>
         </header>
     )
